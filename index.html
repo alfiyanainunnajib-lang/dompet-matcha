@@ -1,0 +1,710 @@
+<!DOCTYPE html><html class="dark" lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Dompet Matcha | Exclusive Finance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#ffb4ab",
+                    "on-background": "#e3e3dd",
+                    "inverse-on-surface": "#2f312d",
+                    "primary-fixed-dim": "#b2cf9d",
+                    "on-tertiary-fixed-variant": "#274f2c",
+                    "surface-container-lowest": "#0d0f0b",
+                    "on-primary-fixed": "#0a2002",
+                    "on-surface": "#e3e3dd",
+                    "surface-variant": "#343531",
+                    "on-tertiary": "#0e3817",
+                    "surface-bright": "#383a36",
+                    "tertiary": "#bbeaba",
+                    "tertiary-container": "#a0cea0",
+                    "on-secondary-container": "#9dc29c",
+                    "surface": "#121411",
+                    "secondary-container": "#305032",
+                    "primary": "#c9e7b3",
+                    "outline": "#8e9287",
+                    "on-tertiary-fixed": "#002107",
+                    "surface-dim": "#121411",
+                    "surface-container": "#1f201c",
+                    "on-tertiary-container": "#305934",
+                    "on-primary-container": "#3e562f",
+                    "inverse-surface": "#e3e3dd",
+                    "secondary": "#abd0a9",
+                    "on-primary": "#1f3612",
+                    "secondary-fixed": "#c6edc4",
+                    "surface-container-low": "#1b1c19",
+                    "outline-variant": "#44483f",
+                    "on-error-container": "#ffdad6",
+                    "inverse-primary": "#4c653c",
+                    "surface-tint": "#b2cf9d",
+                    "on-error": "#690005",
+                    "primary-container": "#aecb99",
+                    "on-secondary-fixed": "#012108",
+                    "surface-container-high": "#292a27",
+                    "on-surface-variant": "#c4c8bc",
+                    "background": "#121411",
+                    "error-container": "#93000a",
+                    "surface-container-highest": "#343531",
+                    "on-secondary-fixed-variant": "#2e4e30",
+                    "primary-fixed": "#ceecb7",
+                    "on-primary-fixed-variant": "#354d27",
+                    "tertiary-fixed-dim": "#a4d2a4",
+                    "on-secondary": "#17371b",
+                    "tertiary-fixed": "#bfefbe",
+                    "secondary-fixed-dim": "#abd0a9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "sans": ["Inter", "sans-serif"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        :root {
+            --matcha-deep: #2d3e1f;
+            --glass-bg: rgba(18, 20, 17, 0.7);
+            --glass-border: rgba(142, 146, 135, 0.15);
+            --gold-accent: #c9e7b3;
+            --batik-overlay: url('https://lh3.googleusercontent.com/aida/ADBb0uiXDePJ0mh5h_IyB9JfU2L7H4s5iaCADzp8PAq7lDRK822D-CixfFs9ldxFxmJb9DS5YNzrK8KrkYzH8OLHmCUE-ZPL-9CtFq1i_f63rf4-0r0SkIlwbOFjSzqM4c9sKCKOUj2ol6uVih9X0tY7_aGW8AK7Jf7ZjRkiBC2xDCFqsa3punS4I-89ece_k6p2R85ivRaUdmPqrTnd976HQIGCYDwBk8uTb49a4fHjtK8Kmjo4bCIhpqupzA');
+            --matcha-logo: url('https://lh3.googleusercontent.com/aida/ADBb0uh3rkic3eG9yhcrxqMBjN8_zMAv9W11bmxlXk2NmYL2Dzssd-k0uaaukwjpOUBXYEaFTAvqXhfvAWYl76T_8g6qDkRz6UO-bdxJHtns5Yeh5A22Kf5oRlMmG3ud-oImA-YedODjLArsiwe4JVe0RlxwjEN0pVhwwzOmBdmKGm-LMB5W8Gu5qba9L1goKKlPISuUsD_CFDBqB-6aRIpZ3Y8PcN0htzCh7-PkWleM46GK17o9FX4VoAkngA');
+        }
+
+        body {
+            background-color: #0d0f0b;
+            background-image: radial-gradient(circle at 50% -20%, #1f3612 0%, #0d0f0b 60%);
+            color: #e3e3dd;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 520px;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .hero-card {
+            background-color: var(--matcha-deep);
+            background-image: linear-gradient(rgba(45, 62, 31, 0.9), rgba(45, 62, 31, 0.9)), var(--batik-overlay);
+            background-size: cover;
+            background-position: center;
+            border: 1px solid rgba(201, 231, 179, 0.2);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .hero-card::after {
+            content: "";
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: linear-gradient(135deg, rgba(201, 231, 179, 0.05) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .type-btn {
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .type-btn.active.expense { background: #5c2020; color: #ffb4ab; }
+        .type-btn.active.income { background: #354d27; color: #c9e7b3; }
+
+        .btn-premium {
+            background-color: #c9e7b3;
+            color: #0a2002;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 20px rgba(178, 207, 157, 0.2);
+        }
+
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(178, 207, 157, 0.3);
+            filter: brightness(1.05);
+        }
+
+        .btn-premium:active {
+            transform: translateY(0);
+        }
+
+        .transaction-item {
+            transition: all 0.2s ease;
+        }
+
+        .transaction-item:hover {
+            background: rgba(255,255,255,0.03);
+            transform: translateX(4px);
+        }
+
+        .search-bar {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .search-bar:focus-within {
+            border-color: #c9e7b3;
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 0 20px rgba(178, 207, 157, 0.1);
+        }
+
+        #limitNotification {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-150%);
+            z-index: 1000;
+            width: calc(100% - 40px);
+            max-width: 400px;
+            background: #1f201c;
+            border: 1px solid #ffb4ab;
+            border-radius: 20px;
+            padding: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+        }
+
+        #limitNotification.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .date-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #b2cf9d;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin: 24px 0 12px 0;
+        }
+
+        .date-label::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, rgba(178, 207, 157, 0.3), transparent);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(142, 146, 135, 0.2); border-radius: 10px; }
+
+        .modal-overlay {
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(10px);
+        }
+
+        .success-flash {
+            animation: successPulse 0.6s ease;
+        }
+
+        @keyframes successPulse {
+            0% { box-shadow: 0 0 0 0 rgba(201, 231, 179, 0.4); }
+            100% { box-shadow: 0 0 0 20px rgba(201, 231, 179, 0); }
+        }
+    </style>
+</head>
+<body>
+<!-- Notification Toast -->
+<div class="flex items-center gap-4" id="limitNotification">
+<div class="shrink-0 w-12 h-12 bg-red-900/30 text-error rounded-2xl flex items-center justify-center"><img src="https://lh3.googleusercontent.com/aida/ADBb0uh3rkic3eG9yhcrxqMBjN8_zMAv9W11bmxlXk2NmYL2Dzssd-k0uaaukwjpOUBXYEaFTAvqXhfvAWYl76T_8g6qDkRz6UO-bdxJHtns5Yeh5A22Kf5oRlMmG3ud-oImA-YedODjLArsiwe4JVe0RlxwjEN0pVhwwzOmBdmKGm-LMB5W8Gu5qba9L1goKKlPISuUsD_CFDBqB-6aRIpZ3Y8PcN0htzCh7-PkWleM46GK17o9FX4VoAkngA" class="w-8 h-8 object-contain" alt="Logo"></div>
+<div class="flex-1">
+<div class="font-bold text-sm text-error">Peringatan Hemat</div>
+<div class="text-xs text-on-surface-variant">Pengeluaran hari ini sudah melebihi Rp 100rb.</div>
+</div>
+<button class="text-outline text-2xl" onclick="hideNotification()">×</button>
+</div>
+<!-- Monthly Summary Modal -->
+<div class="fixed inset-0 z-[100] modal-overlay hidden items-center justify-center p-6" id="monthlyModal" onclick="closeModal(event)">
+<div class="glass-panel w-full max-w-sm overflow-hidden" onclick="event.stopPropagation()">
+<div class="p-6 border-b border-white/5 flex justify-between items-center bg-white/5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" id="modalIcon">calendar_today</span>
+</div>
+<div>
+<h2 class="font-bold text-lg" id="modalTitle">Ringkasan</h2>
+<p class="text-[10px] text-outline uppercase tracking-[0.2em] font-semibold">Statistik Dompet</p>
+</div>
+</div>
+<button class="text-outline hover:text-white transition-colors" onclick="toggleModal()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="p-4 max-h-[60vh] overflow-y-auto custom-scrollbar" id="monthlyHistoryList">
+<!-- Content via JS -->
+</div>
+</div>
+</div>
+<div class="app-container">
+<!-- Brand Header -->
+<div class="flex flex-col items-center gap-4 mb-2">
+<img alt="Matcha Logo" class="w-16 h-16 object-contain drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida/ADBb0uh3rkic3eG9yhcrxqMBjN8_zMAv9W11bmxlXk2NmYL2Dzssd-k0uaaukwjpOUBXYEaFTAvqXhfvAWYl76T_8g6qDkRz6UO-bdxJHtns5Yeh5A22Kf5oRlMmG3ud-oImA-YedODjLArsiwe4JVe0RlxwjEN0pVhwwzOmBdmKGm-LMB5W8Gu5qba9L1goKKlPISuUsD_CFDBqB-6aRIpZ3Y8PcN0htzCh7-PkWleM46GK17o9FX4VoAkngA">
+<div class="text-center">
+<h1 class="text-3xl font-bold tracking-tight text-primary-fixed">Dompet Matcha</h1>
+<p class="text-sm text-outline font-medium tracking-wide">Eksklusivitas dalam setiap transaksi</p>
+</div>
+</div>
+<!-- Search Bar Integrated -->
+<div class="search-bar flex items-center px-5 h-14 rounded-full">
+<span class="material-symbols-outlined text-outline mr-3">search</span>
+<input autocomplete="off" class="bg-transparent border-none focus:ring-0 w-full text-sm placeholder:text-outline/60" id="searchInput" oninput="handleSearch()" placeholder="Cari riwayat atau tanggal..." type="text">
+</div>
+<!-- Secondary Indicators Grid -->
+<div class="grid grid-cols-2 gap-4">
+<button class="glass-panel p-5 flex flex-col gap-2 text-left hover:bg-white/5 transition-colors" onclick="toggleModal('expense')">
+<div class="flex items-center gap-2 mb-1">
+<div class="w-8 h-8 rounded-lg bg-error/10 text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+</div>
+<span class="text-[10px] font-bold text-outline tracking-widest uppercase">Keluar</span>
+</div>
+<h4 class="text-lg font-bold truncate" id="monthTotal">Rp 0</h4>
+</button>
+<button class="glass-panel p-5 flex flex-col gap-2 text-left hover:bg-white/5 transition-colors" onclick="toggleModal('income')">
+<div class="flex items-center gap-2 mb-1">
+<div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">payments</span>
+</div>
+<span class="text-[10px] font-bold text-outline tracking-widest uppercase">Masuk</span>
+</div>
+<h4 class="text-lg font-bold truncate" id="monthIncomeTotal">Rp 0</h4>
+</button>
+</div>
+<!-- Hero Card - Today's Expense -->
+<div class="hero-card rounded-[32px] p-8 text-center flex flex-col items-center">
+<p class="text-[10px] font-bold text-primary/70 tracking-[0.3em] uppercase mb-3">Pengeluaran Hari Ini</p>
+<h3 class="text-5xl font-bold text-primary mb-2 drop-shadow-md" id="todayTotal">Rp 0</h3>
+<div class="flex items-center gap-4 mt-6 pt-6 border-t border-white/5 w-full">
+<div class="flex-1 text-center border-r border-white/5">
+<p class="text-[10px] font-bold text-white/40 tracking-wider uppercase mb-1">Saldo</p>
+<p class="text-sm font-semibold" id="grandTotal">Rp 0</p>
+</div>
+<div class="flex-1 text-center">
+<p class="text-[10px] font-bold text-white/40 tracking-wider uppercase mb-1">Items</p>
+<p class="text-sm font-semibold" id="totalCount">0</p>
+</div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="glass-panel p-8" id="inputCard">
+<div class="flex bg-black/40 p-1 rounded-2xl mb-8 border border-white/5">
+<button class="type-btn flex-1 py-3 rounded-xl text-xs font-bold active expense" id="typeExpense" onclick="setType('expense')">Pengeluaran</button>
+<button class="type-btn flex-1 py-3 rounded-xl text-xs font-bold income" id="typeIncome" onclick="setType('income')">Pemasukan</button>
+</div>
+<div class="space-y-6">
+<div class="relative group">
+<input autocomplete="off" class="w-full bg-black/20 border-b-2 border-white/10 border-t-0 border-x-0 focus:border-primary transition-all text-center text-xl font-medium py-4 focus:ring-0 placeholder:text-outline/30 text-on-surface" id="descInput" placeholder="Contoh: Kopi 25k" type="text">
+<div class="absolute -bottom-px left-0 w-0 h-0.5 bg-primary group-focus-within:w-full transition-all duration-300"></div>
+</div>
+<button class="btn-premium w-full py-4 rounded-2xl flex items-center justify-center gap-3 text-lg" onclick="addTransaction()">
+<span class="material-symbols-outlined">auto_awesome</span>
+                    Simpan Catatan
+                </button>
+<p class="text-center text-[11px] text-outline italic font-medium" id="motivationalText">Jaga pengeluaranmu tetap hijau seperti matcha 🍵</p>
+</div>
+</div>
+<!-- History List -->
+<div class="glass-panel p-8">
+<div class="flex justify-between items-center mb-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">history</span>
+<h2 class="text-lg font-bold text-on-surface">Riwayat</h2>
+</div>
+<button class="text-[10px] font-bold tracking-widest uppercase text-outline hover:text-error transition-colors px-3 py-1 bg-white/5 rounded-full" onclick="clearAll()">Reset</button>
+</div>
+<div class="space-y-1" id="transactionList">
+<!-- Transactions via JS -->
+</div>
+<!-- Footer -->
+<div class="mt-16 pt-8 border-t border-white/5 flex flex-col items-center opacity-40">
+<img alt="Small Logo" class="h-6 grayscale opacity-50 mb-3" src="https://lh3.googleusercontent.com/aida/ADBb0uh3rkic3eG9yhcrxqMBjN8_zMAv9W11bmxlXk2NmYL2Dzssd-k0uaaukwjpOUBXYEaFTAvqXhfvAWYl76T_8g6qDkRz6UO-bdxJHtns5Yeh5A22Kf5oRlMmG3ud-oImA-YedODjLArsiwe4JVe0RlxwjEN0pVhwwzOmBdmKGm-LMB5W8Gu5qba9L1goKKlPISuUsD_CFDBqB-6aRIpZ3Y8PcN0htzCh7-PkWleM46GK17o9FX4VoAkngA">
+<p class="text-[9px] uppercase tracking-[0.3em] font-bold text-center">Exclusive Finance Manager</p>
+<p class="text-[10px] mt-1">v2.0 Professional Edition</p>
+</div>
+</div>
+</div>
+<script>
+        let transactions = JSON.parse(localStorage.getItem('matchaData')) || [];
+        let currentType = 'expense';
+        
+        const descInput = document.getElementById('descInput');
+        const searchInput = document.getElementById('searchInput');
+        const listContainer = document.getElementById('transactionList');
+        const monthlyHistoryContainer = document.getElementById('monthlyHistoryList');
+        const inputCard = document.getElementById('inputCard');
+        const limitNotification = document.getElementById('limitNotification');
+        const monthlyModal = document.getElementById('monthlyModal');
+        const motivationalText = document.getElementById('motivationalText');
+
+        function setType(type) {
+            currentType = type;
+            document.getElementById('typeExpense').classList.toggle('active', type === 'expense');
+            document.getElementById('typeIncome').classList.toggle('active', type === 'income');
+            
+            if (type === 'expense') {
+                motivationalText.innerText = "Jaga pengeluaranmu tetap hijau seperti matcha 🍵";
+            } else {
+                motivationalText.innerText = "Ayo tambahkan ke tabunganmu! 🍃";
+            }
+            descInput.focus();
+        }
+
+        function showNotification() {
+            limitNotification.classList.add('show');
+        }
+
+        function hideNotification() {
+            limitNotification.classList.remove('show');
+        }
+
+        function toggleModal(category = 'expense') {
+            const isHidden = monthlyModal.classList.contains('hidden');
+            if (isHidden) {
+                monthlyModal.classList.remove('hidden');
+                monthlyModal.classList.add('flex');
+                renderMonthlyHistory(category);
+            } else {
+                monthlyModal.classList.add('hidden');
+                monthlyModal.classList.remove('flex');
+            }
+        }
+
+        function closeModal(e) {
+            if(e.target === monthlyModal) toggleModal();
+        }
+
+        function parseSmart(text) {
+            let parts = text.trim().split(' ');
+            if (parts.length < 1) return null;
+
+            let lastPart = parts[parts.length - 1].toLowerCase();
+            let mult = 1;
+            
+            if (lastPart.endsWith('jt')) {
+                mult = 1000000;
+                lastPart = lastPart.replace('jt', '');
+            } else if (lastPart.endsWith('rb') || lastPart.endsWith('k')) {
+                mult = 1000;
+                lastPart = lastPart.replace('rb', '').replace('k', '');
+            }
+
+            let numericPartStr = lastPart.replace(/\./g, '').replace(',', '.');
+            let numericPart = parseFloat(numericPartStr);
+            
+            if (isNaN(numericPart)) return null;
+            
+            let amount = Math.round(numericPart * mult);
+            let description = parts.length > 1 ? parts.slice(0, -1).join(' ') : (currentType === 'income' ? 'Pemasukan' : 'Pengeluaran');
+            
+            description = description.charAt(0).toUpperCase() + description.slice(1);
+            return { desc: description, amt: amount };
+        }
+
+        function formatRP(num) {
+            return new Intl.NumberFormat('id-ID', { 
+                style: 'currency', 
+                currency: 'IDR', 
+                maximumFractionDigits: 0 
+            }).format(num);
+        }
+
+        function getTodayString() {
+            const now = new Date();
+            return now.toLocaleDateString('id-ID', { day: 'numeric', month: 'numeric', year: 'numeric' });
+        }
+
+        function getYesterdayString() {
+            const d = new Date();
+            d.setDate(d.getDate() - 1);
+            return d.toLocaleDateString('id-ID', { day: 'numeric', month: 'numeric', year: 'numeric' });
+        }
+
+        function getMonthYearString(date) {
+            const d = date || new Date();
+            return d.toLocaleDateString('id-ID', { month: 'long', year: 'numeric' });
+        }
+
+        function triggerSuccess() {
+            inputCard.classList.remove('success-flash');
+            void inputCard.offsetWidth;
+            inputCard.classList.add('success-flash');
+        }
+
+        function addTransaction() {
+            const raw = descInput.value.trim();
+            if (!raw) return;
+
+            const parsed = parseSmart(raw);
+            if (!parsed) {
+                alert("Format salah. Contoh: Kopi 25k atau Bonus 1jt");
+                return;
+            }
+
+            const finalAmount = currentType === 'income' ? parsed.amt : -Math.abs(parsed.amt);
+            const now = new Date();
+
+            const newItem = {
+                id: Date.now(),
+                desc: parsed.desc,
+                amount: finalAmount,
+                timeStr: now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }),
+                dateStr: now.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' }),
+                fullDate: getTodayString(),
+                monthYear: getMonthYearString(now),
+                timestamp: now.getTime()
+            };
+
+            transactions.unshift(newItem);
+            triggerSuccess();
+            saveAndRender();
+            descInput.value = '';
+            descInput.focus();
+            setType('expense'); 
+            searchInput.value = ''; 
+        }
+
+        function remove(id) {
+            transactions = transactions.filter(t => t.id !== id);
+            saveAndRender();
+        }
+
+        function clearAll() {
+            if (confirm('Bersihkan semua riwayat eksklusif Anda?')) {
+                transactions = [];
+                saveAndRender();
+            }
+        }
+
+        function renderMonthlyHistory(category) {
+            monthlyHistoryContainer.innerHTML = '';
+            const monthlyData = {};
+            
+            document.getElementById('modalTitle').innerText = category === 'income' ? 'Ringkasan Masuk' : 'Ringkasan Keluar';
+            document.getElementById('modalIcon').innerText = category === 'income' ? 'payments' : 'trending_down';
+
+            transactions.forEach(t => {
+                const isTarget = category === 'income' ? t.amount > 0 : t.amount < 0;
+                if (isTarget) {
+                    const my = t.monthYear || getMonthYearString(new Date(t.timestamp || t.id));
+                    monthlyData[my] = (monthlyData[my] || 0) + Math.abs(t.amount);
+                }
+            });
+
+            const sortedMonths = Object.keys(monthlyData).sort((a, b) => {
+                const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+                const splitA = a.split(' ');
+                const splitB = b.split(' ');
+                const mA = splitA[0];
+                const yA = splitA[1];
+                const mB = splitB[0];
+                const yB = splitB[1];
+                if (yA !== yB) return yB - yA;
+                return months.indexOf(mB) - months.indexOf(mA);
+            });
+
+            if (sortedMonths.length === 0) {
+                monthlyHistoryContainer.innerHTML = `<div class="text-center py-12 text-outline/50 italic text-xs uppercase tracking-widest">Data belum tersedia</div>`;
+                return;
+            }
+
+            sortedMonths.forEach(month => {
+                const item = document.createElement('div');
+                item.className = 'flex justify-between items-center p-4 border-b border-white/5 last:border-0';
+                item.innerHTML = `
+                    <span class="font-medium text-sm text-on-surface">${month}</span>
+                    <span class="font-bold text-sm ${category === 'income' ? 'text-primary' : 'text-error'}">${formatRP(monthlyData[month])}</span>
+                `;
+                monthlyHistoryContainer.appendChild(item);
+            });
+        }
+
+        function handleSearch() {
+            const query = searchInput.value.toLowerCase().trim();
+            if (query.length > 0) {
+                setType('expense');
+            }
+            saveAndRender();
+        }
+
+        function saveAndRender() {
+            localStorage.setItem('matchaData', JSON.stringify(transactions));
+            listContainer.innerHTML = '';
+            
+            const query = searchInput.value.toLowerCase().trim();
+            
+            let dailyTotalExpense = 0;
+            let monthlySpend = 0;
+            let monthlyIncome = 0;
+            let totalBalance = 0;
+            const today = getTodayString();
+            const yesterday = getYesterdayString();
+            const thisMonth = getMonthYearString();
+
+            const todayList = [];
+            const yesterdayList = [];
+            const olderList = [];
+
+            transactions.forEach(t => {
+                const tDateObj = new Date(t.timestamp || t.id);
+                const currentMY = t.monthYear || getMonthYearString(tDateObj);
+                const isThisMonth = currentMY === thisMonth;
+
+                if (t.fullDate === today && t.amount < 0) {
+                    dailyTotalExpense += Math.abs(t.amount);
+                }
+                if (isThisMonth) {
+                    if (t.amount < 0) monthlySpend += Math.abs(t.amount);
+                    else monthlyIncome += t.amount;
+                }
+                totalBalance += t.amount;
+
+                let matches = true;
+                if (query) {
+                    const searchContent = `${t.desc} ${t.dateStr} ${t.fullDate} ${t.monthYear}`.toLowerCase();
+                    matches = searchContent.includes(query);
+                }
+
+                if (matches) {
+                    if (t.fullDate === today) {
+                        todayList.push(t);
+                    } else if (t.fullDate === yesterday) {
+                        yesterdayList.push(t);
+                    } else {
+                        olderList.push(t);
+                    }
+                }
+            });
+
+            document.getElementById('todayTotal').innerText = formatRP(dailyTotalExpense);
+            document.getElementById('monthTotal').innerText = formatRP(monthlySpend);
+            document.getElementById('monthIncomeTotal').innerText = formatRP(monthlyIncome);
+            document.getElementById('grandTotal').innerText = formatRP(totalBalance);
+            document.getElementById('totalCount').innerText = transactions.length;
+
+            if (dailyTotalExpense > 100000) showNotification();
+            else hideNotification();
+
+            if (transactions.length === 0) {
+                listContainer.innerHTML = '<div class="text-center py-12 text-outline/40 italic text-xs uppercase tracking-widest font-bold">Catatan Kosong</div>';
+                return;
+            }
+
+            if (query && todayList.length === 0 && yesterdayList.length === 0 && olderList.length === 0) {
+                listContainer.innerHTML = '<div class="text-center py-12 text-outline/40 italic text-xs">Pencarian tidak ditemukan...</div>';
+                return;
+            }
+
+            const renderItems = (items, label) => {
+                if (items.length === 0) return;
+                
+                const dateHeader = document.createElement('div');
+                dateHeader.className = 'date-label';
+                dateHeader.innerText = label;
+                listContainer.appendChild(dateHeader);
+
+                items.forEach(t => {
+                    const item = document.createElement('div');
+                    item.className = 'transaction-item flex justify-between items-center p-4 rounded-2xl hover:bg-white/5 transition-all group';
+                    const isNeg = t.amount < 0;
+                    
+                    item.innerHTML = `
+                        <div class="flex flex-col min-w-0 pr-4">
+                            <span class="text-sm font-bold text-on-surface truncate">${t.desc}</span>
+                            <span class="text-[10px] text-outline font-medium tracking-wide uppercase">${t.timeStr}${label !== 'Hari Ini' && label !== 'Kemarin' ? ' · ' + t.dateStr : ''}</span>
+                        </div>
+                        <div class="flex items-center shrink-0">
+                            <span class="text-sm font-bold ${isNeg ? 'text-error' : 'text-primary'}">
+                                ${isNeg ? '-' : '+'}${formatRP(Math.abs(t.amount)).replace('Rp', '').trim()}
+                            </span>
+                            <button class="ml-4 p-2 rounded-xl text-outline hover:text-error opacity-0 group-hover:opacity-100 transition-all" onclick="remove(${t.id})">
+                                <span class="material-symbols-outlined text-lg">close</span>
+                            </button>
+                        </div>
+                    `;
+                    listContainer.appendChild(item);
+                });
+            };
+
+            renderItems(todayList, "Hari Ini");
+            renderItems(yesterdayList, "Kemarin");
+            
+            if (olderList.length > 0) {
+                let currentLabel = "";
+                olderList.forEach(t => {
+                    if (t.fullDate !== currentLabel) {
+                        currentLabel = t.fullDate;
+                        const dateHeader = document.createElement('div');
+                        dateHeader.className = 'date-label';
+                        dateHeader.innerText = t.dateStr;
+                        listContainer.appendChild(dateHeader);
+                    }
+                    const item = document.createElement('div');
+                    item.className = 'transaction-item flex justify-between items-center p-4 rounded-2xl hover:bg-white/5 transition-all group';
+                    const isNeg = t.amount < 0;
+                    item.innerHTML = `
+                        <div class="flex flex-col min-w-0 pr-4">
+                            <span class="text-sm font-bold text-on-surface truncate">${t.desc}</span>
+                            <span class="text-[10px] text-outline font-medium tracking-wide uppercase">${t.timeStr}</span>
+                        </div>
+                        <div class="flex items-center shrink-0">
+                            <span class="text-sm font-bold ${isNeg ? 'text-error' : 'text-primary'}">
+                                ${isNeg ? '-' : '+'}${formatRP(Math.abs(t.amount)).replace('Rp', '').trim()}
+                            </span>
+                            <button class="ml-4 p-2 rounded-xl text-outline hover:text-error opacity-0 group-hover:opacity-100 transition-all" onclick="remove(${t.id})">
+                                <span class="material-symbols-outlined text-lg">close</span>
+                            </button>
+                        </div>
+                    `;
+                    listContainer.appendChild(item);
+                });
+            }
+        }
+
+        descInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') addTransaction();
+        });
+
+        // Initialize
+        saveAndRender();
+    </script>
+
+
+</body></html>
